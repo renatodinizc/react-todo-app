@@ -2,10 +2,15 @@ import React from 'react';
 
 function List(props) {
 
+    function handleDeleteTask() {
+        const remainingTasks = props.tasks.filter(task => props.id !== task.id);
+        props.setTasks(remainingTasks);
+
+
+    };
+
     return (
-        <>
-            {props.tasks.map(task => <li>{task.id}. {task.title} <button>Delete task</button> </li>)}
-        </>
+        <li>{props.id} {props.title} <button onClick={handleDeleteTask}>Delete Task</button></li>
     );
 }
 

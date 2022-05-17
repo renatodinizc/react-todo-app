@@ -17,7 +17,7 @@ function App() {
       <Form createTask={createTask} id={tasks.length + 1} />
 
       <ul>
-        <List tasks={tasks} />
+        {tasks.map((task) => <List id={task.id} title={task.title} tasks={tasks} setTasks={setTasks}/>)}
       </ul>
 
     </>
