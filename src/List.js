@@ -1,10 +1,10 @@
-import React, {setState} from 'react';
+import React from 'react';
 
 function List(props) {
 
     return (
         <>
-            {props.tasks.map(task => <li>{task.id}. {task.title}</li>)}
+            {props.tasks.map(task => <li>{task.id}. {task.title} <button>Delete task</button> </li>)}
         </>
     );
 }
