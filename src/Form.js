@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 
 function Form(props) {
-    const [name, setName] = useState('');
+    const [task, setTask] = useState({
+        id: 0,
+        title: ''
+    });
 
     function handleChange(event) {
-        setName(event.target.value);
+        setTask({
+            id: props.id,
+            title: event.target.value
+        });
     }
    
     function handleSubmit(event) {
         event.preventDefault();
-        props.createTask(name);
-        setName('');
+        props.createTask(task);
+        setTask({
+            id: 0,
+            title:''
+        });
     }
 
     return (
         <form onSubmit={ handleSubmit }>
         <h3>What needs to be done?</h3>
-            <input type='text' name='text' value={name} onChange={handleChange} placeholder='Add a new task' autoComplete='off' />
+            <input type='text' value={task.title} onChange={handleChange} placeholder='Add a new task' autoComplete='off' />
             <button type='submit'>Submit new task</button>
         </form>
     );

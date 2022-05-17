@@ -4,7 +4,7 @@ function List(props) {
 
     return (
         <>
-            {props.tasks.map(task => <li>{task}</li>)}
+            {props.tasks.map(task => <li>{task.id}. {task.title}</li>)}
         </>
     );
 }
