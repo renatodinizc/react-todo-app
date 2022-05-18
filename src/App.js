@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form from './Form';
-import List from './List';
+import Item from './Item';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -9,6 +9,22 @@ function App() {
     if (task.title.trim()) {
       setTasks([...tasks, task]);
     };
+  };
+
+  function deleteTask(id) {
+    const remainingTasks = tasks.filter(task => task.id !== id);
+    remainingTasks.map(task => task.id)
+    setTasks(remainingTasks);
+  };
+
+  function editTask(id) {
+    const editedTasks = tasks.map(task => {
+      if (task.id == id) {
+        return {...task, title: prompt('Insert edition to task')};
+      }
+      return task;
+    });
+    setTasks(editedTasks);
   }
 
   return (
@@ -17,7 +33,7 @@ function App() {
       <Form createTask={createTask} id={tasks.length + 1} />
 
       <ul>
-        {tasks.map((task) => <List id={task.id} title={task.title} tasks={tasks} setTasks={setTasks}/>)}
+        {tasks.map((task) => <Item id={task.id} title={task.title} tasks={tasks} editTask={editTask} deleteTask={deleteTask}/>)}
       </ul>
 
     </>
