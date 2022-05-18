@@ -17,10 +17,10 @@ function App() {
     setTasks(remainingTasks);
   };
 
-  function editTask(id) {
+  function editTask(id, newName) {
     const editedTasks = tasks.map(task => {
       if (task.id == id) {
-        return {...task, title: prompt('Insert edition to task')};
+        return {...task, title: newName};
       }
       return task;
     });
