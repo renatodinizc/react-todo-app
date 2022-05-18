@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/%7Breact-todo-app%7D/static/js/main.ea7eec92.js",
+    "index.html": "/%7Breact-todo-app%7D/index.html",
+    "main.ea7eec92.js.map": "/%7Breact-todo-app%7D/static/js/main.ea7eec92.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ea7eec92.js"
+  ]
+}
